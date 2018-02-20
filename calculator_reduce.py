@@ -1,6 +1,8 @@
 def calculator_pre():
     """pre-fix calculator, takes in input and performs requested operations"""
 
+    from decimal import Decimal
+
     input_lst2 = []
     input_op = raw_input("Please enter your choice: ")
     input_lst = input_op.split(" ")
@@ -16,24 +18,24 @@ def calculator_pre():
             return "Invalid  input"
 
     l2 = ['+', '-', '*', '/', 'square', 'cube', 'pow', 'mod']
-    if input_lst[0] !in l2:
+    if input_lst[0] not in l2:
         return "Invalid entry"
 
     if input_lst[0] == "+":
-        return reduce(add, input_lst2)
+        return round(reduce(add, input_lst2), 2)
     elif input_lst[0] == "-":
-        return reduce(subtract,input_lst2)
+        return round(reduce(subtract,input_lst2), 2)
     elif input_lst[0] == "*":
-        return reduce(multiply, input_lst2)
+        return round(reduce(multiply, input_lst2), 2)
     elif input_lst[0] == "/":
-        return reduce(divide, input_lst2)
+        return round(reduce(divide, input_lst2), 2)
     elif input_lst[0] == "square":
-        return square(input_lst2[0])
+        return round(square(input_lst2[0]), 2)
     elif input_lst[0] == "cube":
-        return cube(input_lst2[0])
+        return round(cube(input_lst2[0]), 2)
     elif input_lst[0] == "pow":
-        return pow(input_lst2[0], input_lst2[1])
+        return round(pow(input_lst2[0], input_lst2[1]), 2)
     elif input_lst[0] == "mod":
-        return mod(input_lst2[0], input_lst2[1])
+        return round(mod(input_lst2[0], input_lst2[1]),2)
 
 
